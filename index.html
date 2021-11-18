@@ -46,4 +46,27 @@
 			const url = new URL(location);
 			url.searchParams.set('theme', select.value);
 			location.href = url.href;
-		}</script></div></body></html>
+		}</script>
+		<script>
+    VenomPlayer.make({
+        publicPath: 'https://cdn.jsdelivr.net/npm/venom-player@' + VenomPlayer.version + '/dist/',
+        source: {
+            file: {
+                360: 'https://raw.githubusercontent.com/mnaseersj/BigBuckBunny/master/BigBuckBunny_640x360.mp4'
+            }
+        }
+    })
+</script>
+
+<script>
+    VenomPlayer.make({
+        publicPath: 'https://cdn.jsdelivr.net/npm/venom-player@' + VenomPlayer.version + '/dist/',
+        source: {
+            file: {
+                360: 'https://raw.githubusercontent.com/mnaseersj/BigBuckBunny/master/BigBuckBunny_640x360.mp4'
+            }
+        }
+    })
+</script>
+
+		</div></body></html>
