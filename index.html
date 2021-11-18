@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"><title>test player</title><script defer="defer" src="player.js"></script></head><body><script src="mobileConsole.2020.12.js"></script><script src="debug-tv.js"></script><div id="app">player will be here</div><canvas id="canvas" style="width: 98vw;"></canvas><script type="module">import 'https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.bundle.min.js';
+	import 'https://cdn.jsdelivr.net/npm/lodash';
+
+	const ctx = document.getElementById('canvas').getContext('2d');
+	window.bwChart = new Chart(ctx, {
+		type: 'line',
+		data: { datasets: [] },
+		options: {
+			animation: { duration: 0 },
+			tooltips: { enabled: false },
+			scales: {
+				xAxes: [{
+					type: 'time',
+					distribution: 'series',
+					ticks: { display: false },
+				}]
+			},
+		},
+	});
+	bwChart.addLine = function (label, data) {
+		const borderColor = ['audio', 'video', 'main'].includes(label)
+			? 'black'
+			: `rgb(${new Array(3).fill(0).map(() => Math.random() * 255 | 0)})`;
+		this.data.datasets.push({
+			label, data,
+			borderColor,
+			fill: false,
+		});
+	};
+	bwChart.updateLine = function (label, y) {
+		if (y == null) return;
+		const t = new Date;
+		const point = { t, y };
+		const set = this.data.datasets.find(d => d.label == label);
+		if (set) {
+			set.data.push(point);
+		} else {
+			this.addLine(label, [point]);
+		}
+		this.update();
+	};
+	setInterval(() => bwChart.data.datasets.forEach(set => {
+		_.remove(set.data, p => +p.t + 2 * 60_000 < new Date);
+		if (!set.data.length) _.pull(bwChart.data.datasets, set);
+	}), 15_000);</script><div style="height: 1000px; border: 1px dashed"><select id="theme" onchange="switchTheme(this)"><option value="modern">modern</option><option value="venom">venom</option><option value="classic">classic</option><option value="metro">metro</option><option value="simple">simple</option><option value="tuber">tuber</option></select><script>function switchTheme(select) {
+			const url = new URL(location);
+			url.searchParams.set('theme', select.value);
+			location.href = url.href;
+		}</script></div></body></html>
