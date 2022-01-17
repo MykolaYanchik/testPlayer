@@ -16,4 +16,8 @@ var player = VenomPlayer.make({
 			{ name: "Рус. форсированные", url: "https://hls-c1.s2w3.space/06_03_20/06/03/16/SJC57WZZ/ZZKOK3RC.vtt" },
 		],
 	},
+    sections: [
+		{ start: 0, end: 57, skip: true, type: 'intro', title: 'logo' },
+		{ start: 6838, end: 7387, skip: true, type: 'credits' },
+	],
   })
