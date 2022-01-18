@@ -5,7 +5,8 @@
     sections: [
 		{ start: 0, end: 57, skip: true, type: 'intro', title: 'logo' },
 		{ start: 6838, end: 7387, skip: true, type: 'credits' },
-	],"container": document.getElementById("app"),
+	],
+	"container": document.getElementById("app"),
     source: {
 		// hls: 'https://video.venomplay.com/demo-003/master.m3u8',
 		// hls: "https://cdn.streambox.in/hls4/kinopub/aWQ9NDIxNjY2OzkyOTU5NTQwOzEwMTQ5NDIxOzE2MTU1NDQ1MDYmaD1wRnhXNU5UbGdoYUE5UkRaY3NjUTNnJmU9MTYxNTYzMDkwNg/88483.m3u8", //audioGroups
@@ -22,4 +23,5 @@
 			{ name: "Рус. форсированные", url: "https://hls-c1.s2w3.space/06_03_20/06/03/16/SJC57WZZ/ZZKOK3RC.vtt" },
 		],
 	},
+	"theme": "classic","theme": "classic",
 })
