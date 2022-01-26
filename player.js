@@ -32,7 +32,11 @@ var player = VenomPlayer.make({
 					}
 				],
 				duration: 3600,
-				title: "Доктор Кто (12 сезон) - 1 серия"
+				title: "Доктор Кто (12 сезон) - 1 серия",
+                sections: [
+                    { start: 0, end: 57, skip: true, type: 'intro', title: 'logo' },
+                    { start: 3500, end: 3600, skip: true, type: 'credits' },
+                ]
 			},
 			{
 				episode: "2",
