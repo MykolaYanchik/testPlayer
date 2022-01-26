@@ -262,5 +262,5 @@ var player = VenomPlayer.make({
 			}
         ]
     },
-	"theme": "classic",
+	"theme": "metro",
 })
